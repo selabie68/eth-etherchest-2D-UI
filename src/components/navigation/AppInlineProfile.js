@@ -1,16 +1,10 @@
 import React, { useState } from 'react'
 import Chip from '@material-ui/core/Chip'
 import { Lock } from '@material-ui/icons'
+import { Link } from '@reach/router'
 import Avatar from '@material-ui/core/Avatar'
 import Tooltip from '@material-ui/core/Tooltip'
 import { makeStyles } from '@material-ui/core/styles'
-
-// import { EtherchestAPI } from './service/EtherchestAPI.js'
-//import { StateContext } from '../../App'
-
-const handleClick = () => {
-  window.location = '/login'
-}
 
 const useStyles = makeStyles((theme) => ({
   font: {
@@ -28,21 +22,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const AppInlineProfile = () => {
-  // const etherchestApi = new EtherchestAPI()
   const classes = useStyles()
-  //const { username } = useContext(StateContext)
   const [validatedTo] = useState()
   const username = ''
-
-  // useEffect(() => {
-  //   etherchestApi.hiveUserExists(username).then((username) => {
-  //     if (username) {
-  //       setValidatedTo(username)
-  //     } else {
-  //       setValidatedTo()
-  //     }
-  //   })
-  // }, [username])
 
   if (!username) {
     return (
@@ -50,10 +32,11 @@ export const AppInlineProfile = () => {
         <Tooltip title="Please Sign In to Begin" placement="left">
           <Chip
             icon={<Lock />}
+            component={Link}
             color="primary"
             label="Not signed in"
-            onClick={handleClick}
             className={classes.font}
+            to="/login"
           />
         </Tooltip>
         <br />

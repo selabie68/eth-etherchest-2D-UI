@@ -40,12 +40,6 @@ const HtmlTooltip = withStyles((theme) => ({
 export default function DesktopTopbar() {
   const classes = useStyles()
 
-  const Link1 = React.forwardRef((props, ref) => (
-    <Link innerRef={ref} {...props} />
-  ))
-
-  Link1.displayName = 'Link1'
-
   return (
     <div className="layout-topbar clearfix">
       <Grid container spacing={0}>
@@ -63,7 +57,11 @@ export default function DesktopTopbar() {
                 placement="top"
                 TransitionComponent={Zoom}
               >
-                <IconButton className="layout-menu-button" href="/">
+                <IconButton
+                  className="layout-menu-button"
+                  component={Link}
+                  to="/"
+                >
                   <FarmIcon />
                 </IconButton>
               </HtmlTooltip>
@@ -83,8 +81,7 @@ export default function DesktopTopbar() {
               >
                 <IconButton
                   className="layout-menu-button"
-                  component={Link1}
-                  to="/trending"
+                  href="https://www.etherchest.com/trending"
                 >
                   <BlogIcon />
                 </IconButton>
@@ -105,8 +102,7 @@ export default function DesktopTopbar() {
               >
                 <IconButton
                   className="layout-menu-button"
-                  component={Link1}
-                  to="/faq"
+                  href="https://www.etherchest.com/faq"
                 >
                   <InformationIcon />
                 </IconButton>

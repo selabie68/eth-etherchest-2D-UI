@@ -81,9 +81,7 @@ class AppSubmenu extends Component {
     if (item.to) {
       return (
         <NavLink
-          activeClassName="active-route"
           onClick={(e) => this.onMenuItemClick(e, item, i)}
-          exact
           target={item.target}
           to="#"
         >

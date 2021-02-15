@@ -7,6 +7,9 @@ import AppTopbar from './components/navigation/AppTopbar'
 import AppMenu from './components/navigation/AppMenu'
 
 import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+import VerifyPage from './pages/VerifyPage'
 
 import './styles/App.scss'
 
@@ -198,13 +201,9 @@ class App extends React.Component {
         <div className="layout-main">
           <Router>
             <HomePage path="/" />
-            {/* <Route path="/" exact component={HomePage} />
-            <Route path="/callback" component={SCCallback} />
-            <Route path="/trending" component={Trending} />
-            <Route path="/dashboard" component={Inventory} />
-            <Route path="/faq" component={FAQPage} />
-            <Route path="/terms" component={TermsPage} />
-            <Route path="/privacy" component={PrivacyPage} /> */}
+            <LoginPage path="/login" />
+            <SignupPage path="/signup" />
+            <VerifyPage path="/verify/:code" />
           </Router>
         </div>
         <div className="layout-mask"></div>
